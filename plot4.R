@@ -24,7 +24,7 @@ ggplot(data=NEI_group_year_summary, aes(x=year, y=PM_kilo)) +
   ylab(expression(paste('PM', ''[2.5], ' in kilotons'))) + 
   geom_text(aes(label=PM_kilo, size=2, hjust=1.5, vjust=1.5)) + 
   theme(legend.position='none') + scale_colour_gradient(low='black', high='red')
-
+ 
 ggplot(NEI_group_year_summary, aes(year, PM_kilo)) +
   geom_line() + geom_point() +
   labs(title = "Total Emissions from Coal Combustion-Related Sources",
