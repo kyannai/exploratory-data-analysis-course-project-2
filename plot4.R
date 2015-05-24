@@ -28,7 +28,7 @@ ggplot(data=NEI_group_year_summary, aes(x=year, y=PM_kilo)) +
 ggplot(NEI_group_year_summary, aes(year, PM_kilo)) +
   geom_line() + geom_point() +
   labs(title = "Total Emissions from Coal Combustion-Related Sources",
-       x = "Year", y = expression("Total PM"[2.5]*" Emission (Tons)"))
+       x = "Year", y = expression("Total PM"[2.5]*" Emission (Kilotons)"))
 
 dev.copy(png, file="plot4.png", width=480, height=480)
 dev.off()
