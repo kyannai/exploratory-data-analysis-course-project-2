@@ -7,13 +7,13 @@ NEI <- readRDS("exdata-data-NEI_data/summarySCC_PM25.rds")
 SCC <- readRDS("exdata-data-NEI_data/Source_Classification_Code.rds")
 
 # filter NEI data by SCC contains 'coal' or 'comb'
-SCC_comb <- filter(SCC, grepl("Comb.*Coal",Short.Name))
+SCC_comb_coal <- filter(SCC, grepl("Comb.*Coal",Short.Name))
 
 # merge SCC_coal with NEI 
-NEI_coal_comb <- merge(x=NEI, y=SCC_comb_coal, by='SCC')
+NEI_comb_coal <- merge(x=NEI, y=SCC_comb_coal, by='SCC')
 
 # group and get sum of Emissions by year
-NEI_group_year <- group_by(NEI_coal_comb,year)
+NEI_group_year <- group_by(NEI_comb_coal,year)
 NEI_group_year_summary <- summarize(NEI_group_year, total = sum(Emissions))
 NEI_group_year_summary <- mutate(NEI_group_year_summary, PM_kilo = round(total/1000,2))
 
